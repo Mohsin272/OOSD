@@ -91,7 +91,7 @@ public class Book {
 	}
 	
 	public void BookReturn() {
-		setStatus('C');
+		setStatus('A');
 	}
 	
 	@Override
