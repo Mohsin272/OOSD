@@ -11,7 +11,7 @@ public class thermtest {
 			System.out.println("Temp. of Thermometer A is " + thermA.getCelsius() );
 			thermA.setCelsius(20.0);
 			System.out.println("Temp. of Thermometer A is " + thermA.getCelsius() );
-			//System.out.println("Temp. of Thermometer B is " + thermB.getCelsius() );
+			System.out.println("Temp. of Thermometer B is " + thermB.getCelsius() );
 			
 		} // end main
 	}
