@@ -70,7 +70,7 @@ public class Book {
 		return chapters;
 	}
 	public void setChapters(int chapters) {
-		if(chapters>0&& chapters<10) {
+		if(chapters>=0&& chapters<10) {
 			this.chapters = chapters;
 		}
 		else {
