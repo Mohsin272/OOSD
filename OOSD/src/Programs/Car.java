@@ -59,12 +59,11 @@ public class Car {
 	public void setSold(boolean sold) {
 		this.sold = sold;
 	}
-	
-	
-	
-	
-	
 	//toString
+	public String toString() {
+		return "Car [make=" + make + ", model=" + model + ", engineSize=" + engineSize + ", price=" + price + ", sold="
+				+ sold + "]";
+	}
 	
 	
 }	
