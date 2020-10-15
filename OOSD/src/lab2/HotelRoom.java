@@ -10,13 +10,23 @@ public class HotelRoom {
 	public HotelRoom() {
 		setroomNumber(0);
 		setroomType("");
+		setVacant(false);
+		setRate(0);
+		
 	}
-	
-	
 public HotelRoom(int roomNumber, String roomType) {
 	setroomNumber (roomNumber);
 	setroomType(roomType);
+	
 }
+public HotelRoom(int roomNumber, String roomType, boolean vacant, double rate) {
+	setroomNumber(roomNumber);
+	setroomType (roomType);
+	setVacant (vacant);
+	setRate (rate);
+}
+
+
 //Getters & Setters
 	public int getroomNumber() {
 		return roomNumber;
@@ -50,14 +60,15 @@ public HotelRoom(int roomNumber, String roomType) {
 	}
 	//toString
 	public String toString() {
-		return "HotelRoom [roomNumber=" + roomNumber + ", roomType=" + roomType + "]";
+		return "HotelRoom [roomNumber=" + roomNumber + ", roomType=" + roomType + ", vacant=" + vacant + ", rate="
+				+ rate + "]";
 	}
-	
-	
-
-	
-	
-	
-	
-	
+	public void isOccupied() {
+		if(vacant) {
+			System.out.println("The room is now occupied");
+		}
+		else{
+			setVacant(true);
+		}
+	}
 }
