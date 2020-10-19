@@ -6,13 +6,13 @@ public class Rectangle {
 	private double width;
 	//Contructors
 	public Rectangle() {
-		length=(5.0);
+		length=(55.0);
 		width=(10.0);
 	}
 	
 	public Rectangle(int length, int width) {
 		setLength (length);
-		setWidth (width);
+		setWidth(width);
 	}
 	//Getters && Setters
 
@@ -21,7 +21,12 @@ public class Rectangle {
 	}
 
 	public void setLength(double length) {
-		this.length = length;
+		if(length>0 && length<=40) {
+			this.length = length;
+		}
+		else {
+			System.out.println("length not in range");
+		}
 	}
 
 	public double getWidth() {
@@ -29,7 +34,12 @@ public class Rectangle {
 	}
 
 	public void setWidth(double width) {
-		this.width = width;
+		if(width>0 && width<=40) {
+			this.width = width;
+		}
+		else {
+			System.out.println("width not in range");
+		}
 	}
 
 	//toString

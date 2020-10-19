@@ -1,6 +1,5 @@
 package lab2b;
 
-import Programs.Book;
 
 public class RectangleDriver {
 
