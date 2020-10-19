@@ -1,6 +1,5 @@
 package lab2b;
 
-
 public class RectangleDriver {
 
 	public static void main(String[] args) {

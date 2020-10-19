@@ -6,8 +6,8 @@ public class Rectangle {
 	private double width;
 	//Contructors
 	public Rectangle() {
-		length=(55.0);
-		width=(10.0);
+		setLength(30.0);
+		setWidth(10.0);
 	}
 	
 	public Rectangle(int length, int width) {
@@ -21,7 +21,7 @@ public class Rectangle {
 	}
 
 	public void setLength(double length) {
-		if(length>0 && length<=40) {
+		if(length>0.0 && length<=40.0) {
 			this.length = length;
 		}
 		else {
@@ -34,7 +34,7 @@ public class Rectangle {
 	}
 
 	public void setWidth(double width) {
-		if(width>0 && width<=40) {
+		if(width>0.0 && width<=40.0) {
 			this.width = width;
 		}
 		else {
