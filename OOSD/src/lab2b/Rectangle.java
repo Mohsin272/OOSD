@@ -54,7 +54,7 @@ public class Rectangle {
 				+ "]";
 	}
 	
-	public void printRectangle(){
+	/*public void printRectangle(){
 		
 		for(int i=1;i<=length;i++) {//checks if length index position in less than or = to length
 			
@@ -70,9 +70,9 @@ public class Rectangle {
 				System.out.println();
 			}
 			
-		}
-	
-	/*public void printRectangle() {
+		}*/
+	//I used this piece of code and it worked 
+	public void printRectangle() {
 		String w ="*";
 		for(int i=0;i<width-1;i++) {
 			w+="*";
@@ -80,7 +80,7 @@ public class Rectangle {
 		System.out.println(w);
 		
 		for(int j=0;j<length-2;j++) {
-			System.out.println("*");
+			System.out.print("*");
 			for(int x=0;x<width-2;x++) {
 				System.out.print(" ");
 			}
@@ -88,7 +88,7 @@ public class Rectangle {
 		}
 		System.out.println(w);
 			
-	}*/
+	}
 	
 	public double getArea() {
 		return length*width;
