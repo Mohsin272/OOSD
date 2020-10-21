@@ -55,7 +55,7 @@ public class Rectangle {
 	}
 	
 	/*public void printRectangle(){
-		
+		// I USED THIS PIECE OF CODE TO PRINT AND IT WORKS
 		for(int i=1;i<=length;i++) {//checks if length index position in less than or = to length
 			
 			for(int j=1;j<=width;j++) {//checks if width index position in less than or = to width
@@ -71,7 +71,7 @@ public class Rectangle {
 			}
 			
 		}*/
-	//I used this piece of code and it worked 
+	
 	public void printRectangle() {
 		String w ="*";
 		for(int i=0;i<width-1;i++) {
