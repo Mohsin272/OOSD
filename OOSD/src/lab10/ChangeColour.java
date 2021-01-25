@@ -69,14 +69,7 @@ public class ChangeColour extends JFrame{
 						getContentPane().setBackground(currentBackground.blue);
 					if(buttonLabel.equals("Red")) 
 						getContentPane().setBackground(currentBackground.red);
-						
-						
-					
-						
-						
-						
-						
-					
+	
 				}
 		}
 
