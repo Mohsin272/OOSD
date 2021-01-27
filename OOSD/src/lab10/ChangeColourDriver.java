@@ -6,10 +6,11 @@ public class ChangeColourDriver {
 
 	public static void main(String[] args) {
 	
-		ChangeColour changeColour = new ChangeColour("Button");
-		changeColour.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		changeColour.setSize(400, 300);
-		changeColour.setVisible(true);
+		ChangeColour myColours = new ChangeColour("Button");
+		myColours.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		myColours.setSize(400, 300);
+		myColours.setVisible(true);
+		myColours.setLocation(500,300);
 
 	}//end main
 

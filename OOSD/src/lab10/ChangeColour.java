@@ -58,17 +58,17 @@ public class ChangeColour extends JFrame{
 				Color currentBackground =  getContentPane().getBackground();
 		 		String buttonLabel = evt.getActionCommand();
 	
-		 		// Test label on button and change background colour
-					if (buttonLabel.equals("Lighter"))
-						 getContentPane().setBackground(currentBackground.brighter());
-				    else
-				    	 getContentPane().setBackground(currentBackground.darker());
-					if (buttonLabel.equals("Green")) 
-						getContentPane().setBackground(currentBackground.green);
-					if(buttonLabel.equals("Blue")) 
-						getContentPane().setBackground(currentBackground.blue);
-					if(buttonLabel.equals("Red")) 
-						getContentPane().setBackground(currentBackground.red);
+		 	// Test label on button and change background colour
+				if (buttonLabel.equals("Lighter"))
+					getContentPane().setBackground(currentBackground.brighter());
+				else
+				    getContentPane().setBackground(currentBackground.darker());
+				if (buttonLabel.equals("Green")) 
+					getContentPane().setBackground(currentBackground.green);
+				if(buttonLabel.equals("Blue")) 
+					getContentPane().setBackground(currentBackground.blue);
+				if(buttonLabel.equals("Red")) 
+					getContentPane().setBackground(currentBackground.red);
 	
 				}
 		}
