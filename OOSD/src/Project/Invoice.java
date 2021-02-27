@@ -1,4 +1,4 @@
-package screens;
+package Project;
 
 import java.awt.BorderLayout;
 
@@ -29,35 +29,24 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JButton;
-import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 
-import javax.swing.JScrollPane;
-
-public class DelUpdateInvoices extends JFrame implements ActionListener {
+public class Invoice extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private final JPanel panel = new JPanel();
 	private final JLabel InvoiceLbl = new JLabel("Invoices");
 	private final JButton ExitBtn = new JButton("Home");
 	private final JPanel panel_2 = new JPanel();
-	private JTextField InvoiceIDTF;
 	private JTextField DateTF;
-	private JTable table;
 	private JTextField totalTF;
-	private JButton addBtn;
-	private JButton upBtn;
-	private JButton delBtn;
-	JComboBox invoiceIDBox = new JComboBox();
-	private DefaultTableModel model;
-	private JButton calculateBtn;
-	private JTextField totaleachTF;
+	private JTextField cusNameTF;
+	private JButton createBtn;
+	JComboBox customerbox = new JComboBox();
 	private JTextField cusIDTF;
-	private JButton addInvoice;
+	private JButton delupinvoice;
 	private JButton viewInvoice;
 	private JButton addProInvoice;
 	private JButton viewProInvoice;
@@ -69,7 +58,7 @@ public class DelUpdateInvoices extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					DelUpdateInvoices frame = new DelUpdateInvoices();
+					Invoice frame = new Invoice();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -81,7 +70,7 @@ public class DelUpdateInvoices extends JFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public DelUpdateInvoices() {
+	public Invoice() {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1053, 573);
@@ -107,15 +96,14 @@ public class DelUpdateInvoices extends JFrame implements ActionListener {
 		ExitBtn.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		ExitBtn.setBounds(0, 491, 286, 45);
 		ExitBtn.addActionListener(this);
-		
 		panel.add(ExitBtn);
 		
-		addInvoice = new JButton("Add Invoices");
-		addInvoice.setBackground(new Color(255, 255, 255));
-		addInvoice.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		addInvoice.setBounds(0, 166, 286, 45);
-		addInvoice.addActionListener(this);
-		panel.add(addInvoice);
+		delupinvoice = new JButton("Delete/Update Invoice");
+		delupinvoice.setBackground(new Color(255, 255, 255));
+		delupinvoice.addActionListener(this);
+		delupinvoice.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		delupinvoice.setBounds(0, 166, 286, 45);
+		panel.add(delupinvoice);
 		
 		viewInvoice=new JButton("View Invoice");
 		viewInvoice.setBackground(new Color(255, 255, 255));
@@ -143,15 +131,25 @@ public class DelUpdateInvoices extends JFrame implements ActionListener {
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JLabel invoiceLblMenu = new JLabel("Delete/Update Invoices");
+		JLabel invoiceLblMenu = new JLabel("Add Invoices");
 		invoiceLblMenu.setHorizontalAlignment(SwingConstants.CENTER);
 		invoiceLblMenu.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		invoiceLblMenu.setBounds(37, 0, 200, 45);
+		invoiceLblMenu.setBounds(95, 0, 100, 45);
 		panel_1.add(invoiceLblMenu);
 		panel_2.setBounds(296, 10, 733, 516);
 		
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
+		
+		JLabel cuslbl = new JLabel("Customer ID");
+		cuslbl.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		cuslbl.setBounds(10, 10, 95, 13);
+		panel_2.add(cuslbl);
+		
+		JLabel dateLbl = new JLabel("Date");
+		dateLbl.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		dateLbl.setBounds(389, 10, 45, 13);
+		panel_2.add(dateLbl);
 		
 		DateTF = new JTextField();
 		DateTF.setText("");
@@ -159,10 +157,11 @@ public class DelUpdateInvoices extends JFrame implements ActionListener {
 		panel_2.add(DateTF);
 		DateTF.setColumns(10);
 		
-		JLabel dateLbl = new JLabel("Date");
-		dateLbl.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		dateLbl.setBounds(389, 10, 45, 13);
-		panel_2.add(dateLbl);
+		JLabel DateinputLbl = new JLabel("YYYY-MM-DD");
+		DateinputLbl.setForeground(Color.RED);
+		DateinputLbl.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		DateinputLbl.setBounds(468, 37, 96, 27);
+		panel_2.add(DateinputLbl);
 		
 		JLabel totalLbl = new JLabel("Total Owed");
 		totalLbl.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -185,19 +184,7 @@ public class DelUpdateInvoices extends JFrame implements ActionListener {
 	         }
 	       });
 		
-		JLabel invoiceIDLbl = new JLabel("Invoice ID");
-		invoiceIDLbl.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		invoiceIDLbl.setBounds(10, 67, 95, 13);
-		panel_2.add(invoiceIDLbl);
-		
-		InvoiceIDTF = new JTextField();
-		InvoiceIDTF.setBounds(115, 67, 96, 19);
-		panel_2.add(InvoiceIDTF);
-		InvoiceIDTF.setColumns(10);
-		InvoiceIDTF.setEditable(false);
-
-		
-		/*JLabel customerNameLBL = new JLabel("Customer Name");
+		JLabel customerNameLBL = new JLabel("Customer Name");
 		customerNameLBL.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		customerNameLBL.setBounds(10, 67, 95, 13);
 		panel_2.add(customerNameLBL);
@@ -206,7 +193,7 @@ public class DelUpdateInvoices extends JFrame implements ActionListener {
 		cusNameTF.setBounds(115, 67, 96, 19);
 		panel_2.add(cusNameTF);
 		cusNameTF.setColumns(10);
-		cusNameTF.setEditable(false);*/
+		cusNameTF.setEditable(false);
 		
 		JLabel customerIDLBL = new JLabel("Customer ID");
 		customerIDLBL.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -219,33 +206,14 @@ public class DelUpdateInvoices extends JFrame implements ActionListener {
 		cusIDTF.setColumns(10);
 		cusIDTF.setEditable(false);
 		
+		createBtn = new JButton("Create");
+		createBtn.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		createBtn.setBounds(10, 485, 85, 21);
+		createBtn.addActionListener(this);
+		panel_2.add(createBtn);
 		
-		delBtn = new JButton("Delete");
-		delBtn.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		delBtn.setBounds(10, 485, 85, 21);
-		delBtn.addActionListener(this);
-		panel_2.add(delBtn);
-		
-		upBtn = new JButton("Update");
-		upBtn.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		upBtn.setBounds(110, 485, 85, 21);
-		upBtn.addActionListener(this);
-		panel_2.add(upBtn);
-		
-		/*calculateBtn = new JButton("Calculate Total");
-		calculateBtn.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		calculateBtn.setBounds(210, 485, 150, 21);
-		calculateBtn.addActionListener(this);
-		panel_2.add(calculateBtn);
-		*/
-		JLabel InvoiceIDLbLcombo = new JLabel("Invoice ID");
-		InvoiceIDLbLcombo.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		InvoiceIDLbLcombo.setBounds(10, 10, 95, 13);
-		panel_2.add(InvoiceIDLbLcombo);
-		
-		invoiceIDBox.setBounds(115, 7, 96, 21);
-		panel_2.add(invoiceIDBox);
-		
+		customerbox.setBounds(115, 7, 96, 21);
+		panel_2.add(customerbox);
 		final String DATABASE_URL ="jdbc:mysql://localhost/project";
 		//localhost/project”;
 		Connection connection = null;
@@ -256,10 +224,10 @@ public class DelUpdateInvoices extends JFrame implements ActionListener {
 	          connection = DriverManager.getConnection(
 	          DATABASE_URL, "root", "" );
 	
-	          pstat = connection.prepareStatement("SELECT InvoiceID FROM Invoice");
+	          pstat = connection.prepareStatement("SELECT CustomerID FROM Customer");
 	          ResultSet resultSet = pstat.executeQuery();
 	          while (resultSet.next()) {
-	        	  invoiceIDBox.addItem(resultSet.getObject(1));
+	        	  customerbox.addItem(resultSet.getObject(1));
 	        	}
 	          
 	        }
@@ -276,7 +244,9 @@ public class DelUpdateInvoices extends JFrame implements ActionListener {
                 sqlException.printStackTrace();
             }
         }//end add to sql
-		invoiceIDBox.addItemListener(
+		
+		customerbox.setSelectedIndex(-1);
+		customerbox.addItemListener(
 				// anonymous inner class
 				new ItemListener(){
 				//handle JComboBox event
@@ -293,19 +263,15 @@ public class DelUpdateInvoices extends JFrame implements ActionListener {
 				          connection = DriverManager.getConnection(
 				          DATABASE_URL, "root", "" );
 				
-				          pstat = connection.prepareStatement("SELECT Date,TotalOwed,CustomerID,InvoiceID From Invoice WHERE InvoiceID="+invoiceIDBox.getSelectedItem());
+				          pstat = connection.prepareStatement("SELECT CustomerID,FirstName FROM customer WHERE CustomerID="+customerbox.getSelectedItem());
 				          ResultSet rs = pstat.executeQuery();
 
 				          if(rs.next()) { 
-				              String d = rs.getString("Date");
-				              DateTF.setText(d);
-				              String t = rs.getString("TotalOwed");
-				              totalTF.setText(t);
-				              String cus = rs.getString("CustomerID");
-				              cusIDTF.setText(cus);
-				              String inv = rs.getString("InvoiceID");
-				              InvoiceIDTF.setText(inv);
-
+				              String N = rs.getString("FirstName");
+				              cusNameTF.setText(N);
+				              String ID=rs.getString("CustomerID");
+				              cusIDTF.setText(ID);
+				              
 				          }
 				         
 				        }
@@ -326,49 +292,10 @@ public class DelUpdateInvoices extends JFrame implements ActionListener {
 				}
 				}
 				); // end call to addItemListener
-		
-		
-		invoiceIDBox.setBounds(115, 7, 96, 21);
-		panel_2.add(invoiceIDBox);
-	
-		invoiceIDBox.setSelectedIndex(-1);
-		
 	}
-	@Override
-	public void actionPerformed(ActionEvent e) {	
-		
-		if(e.getSource()==upBtn) {
-			final String DATABASE_URL ="jdbc:mysql://localhost/project";
-			//localhost/project”;
-			Connection connection = null;
-			PreparedStatement pstat=null;
-			int upid=Integer.parseInt(InvoiceIDTF.getText());
-			String date = DateTF.getText();	
-			String totalowed=totalTF.getText();
-			String cusid=cusIDTF.getText();
-			Main.updateInvoice(upid,date,totalowed,cusid);
-			JOptionPane.showMessageDialog(this,"Invoice Updated successfully");
-		}
-		
-		
-		if(e.getSource()==delBtn) {
-			final String DATABASE_URL ="jdbc:mysql://localhost/project";
-			//localhost/project”;
-			Connection connection = null;
-			PreparedStatement pstat=null;
-			String delid=InvoiceIDTF.getText();
-			Main.deleteInvoice(delid);
-			JOptionPane.showMessageDialog(this,"Invoice Deleted successfully");
-		}
 
-		/*if(e.getSource()==calculateBtn) {
-			double sum = 0;
-	        for(int i = 0; i < table.getRowCount(); i++)
-	        {
-	            sum = sum + Double.parseDouble(table.getValueAt(i, 3).toString());
-	        }
-	        totalTF.setText(Double.toString(sum));
-			}*/
+	@Override
+	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getSource()==viewProInvoice) {
 			viewInvoiceItems v =new viewInvoiceItems();
@@ -384,11 +311,29 @@ public class DelUpdateInvoices extends JFrame implements ActionListener {
 			ViewInvoice vi =new ViewInvoice();
 			vi.setVisible(true);
 		}
-
 		
-		if(e.getSource()==addInvoice) {
-			Invoice inv =new Invoice();
-			inv.setVisible(true);
+		if(e.getSource()==delupinvoice) {
+			DelUpdateInvoices dup =new DelUpdateInvoices();
+			dup.setVisible(true);
+		}
+		
+		if(e.getSource()==createBtn) {
+			if(totalTF.getText().isEmpty() || DateTF.getText().isEmpty()) {
+				JOptionPane.showMessageDialog(this,"Missing Information");
+			}
+			
+			final String DATABASE_URL ="jdbc:mysql://localhost/project";
+			//localhost/project”;
+			Connection connection = null;
+			PreparedStatement pstat=null;
+			String date = DateTF.getText();	
+			String total = totalTF.getText();
+			double total2 = Double.parseDouble(total);
+			String cus=cusIDTF.getText();
+			int cus2 = Integer.parseInt(cus);
+			Main.createInvoice(cus2,date,total2);
+			JOptionPane.showMessageDialog(this,"Invoice Added successfully");
+			
 		}
 		if(e.getSource()==ExitBtn) {
 			MainMenu m =new MainMenu();

@@ -1,4 +1,4 @@
-package screens;
+package Project;
 
 import java.awt.BorderLayout;
 

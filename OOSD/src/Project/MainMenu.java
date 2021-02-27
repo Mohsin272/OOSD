@@ -5,9 +5,11 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
+
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -28,6 +30,7 @@ public class MainMenu extends JFrame implements ActionListener {
 	private final JButton invoiceBtn = new JButton("Invoices");
 	private final JButton productBtn = new JButton("Product");
 	private final JButton CusBtn = new JButton("Customers");
+	
 
 	/**
 	 * Launch the application.
@@ -93,24 +96,36 @@ public class MainMenu extends JFrame implements ActionListener {
 		CusBtn.addActionListener(this);
 		
 		panel.add(CusBtn);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(MainMenu.class.getResource("/screens/home.png")));
+		lblNewLabel.setBounds(515, 107, 250, 320);
+		contentPane.add(lblNewLabel);
 	}
+	
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getSource()==CusBtn) {
-			//panel.dispose();
-			AddCusGUI addcus =new AddCusGUI();
+			Customers c =new Customers();
+			c.setVisible(true);
 		}
+		
 		if(e.getSource()==productBtn) {
-			Products p=new Products();
+			Products p  =new Products();
+			p.setVisible(true);
+		}
+		if(e.getSource()==invoiceBtn) {
+			Invoice i  =new Invoice();
+			i.setVisible(true);
 		}
 		
 		
 		if(e.getSource()==ExitBtn) {
 			System.exit(0);
 		}
-		
 		
 	}
 	
