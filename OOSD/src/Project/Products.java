@@ -221,42 +221,11 @@ public class Products extends JFrame implements ActionListener {
 				
 		        }
 		}
-	}
+	
 		
-	/*public static void addProduct(String name,String description,float price,int quantity){
-		final String DATABASE_URL ="jdbc:mysql://localhost/project";
-		//localhost/project”;
-		Connection connection = null;
-		PreparedStatement pstat=null;
-		int i=0;
-		try{
-	          // establish connection to database
-	          connection = DriverManager.getConnection(
-	          DATABASE_URL, "root", "" );
-	          pstat = connection.prepareStatement("INSERT INTO Product (Name,Description, Quantity, Price) VALUES (?,?,?,?)");
-	          pstat . setString (1, name );
-	          pstat.setString(2, description);
-	          pstat . setInt (3, quantity );
-	          pstat . setFloat (4, price );
-	          
-	          i=pstat .executeUpdate();
-	          
-	        }
-        catch (SQLException sqlException)
-        {
-            sqlException.printStackTrace();
-        }
-        finally {
-            try {
-                pstat.close();
-                connection.close();
-            }
-            catch (SQLException sqlException){
-                sqlException.printStackTrace();
-            }
-        }//end add to sql
+	
 	
 		
 		
-	}*/
+	}
 }

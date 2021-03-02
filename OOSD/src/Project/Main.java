@@ -11,8 +11,7 @@ import javax.swing.JOptionPane;
 
 public class Main {
 	
-	public static void createInvoice(int cus2,String date,double total2) {
-		
+	public static void createInvoice(int cus2,String date,double total2) {	
 		final String DATABASE_URL ="jdbc:mysql://localhost/project";
 		//localhost/project”;
 		Connection connection = null;
