@@ -195,18 +195,6 @@ public class DelUpdateInvoices extends JFrame implements ActionListener {
 		panel_2.add(InvoiceIDTF);
 		InvoiceIDTF.setColumns(10);
 		InvoiceIDTF.setEditable(false);
-
-		
-		/*JLabel customerNameLBL = new JLabel("Customer Name");
-		customerNameLBL.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		customerNameLBL.setBounds(10, 67, 95, 13);
-		panel_2.add(customerNameLBL);
-		
-		cusNameTF = new JTextField();
-		cusNameTF.setBounds(115, 67, 96, 19);
-		panel_2.add(cusNameTF);
-		cusNameTF.setColumns(10);
-		cusNameTF.setEditable(false);*/
 		
 		JLabel customerIDLBL = new JLabel("Customer ID");
 		customerIDLBL.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -231,13 +219,7 @@ public class DelUpdateInvoices extends JFrame implements ActionListener {
 		upBtn.setBounds(110, 485, 85, 21);
 		upBtn.addActionListener(this);
 		panel_2.add(upBtn);
-		
-		/*calculateBtn = new JButton("Calculate Total");
-		calculateBtn.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		calculateBtn.setBounds(210, 485, 150, 21);
-		calculateBtn.addActionListener(this);
-		panel_2.add(calculateBtn);
-		*/
+
 		JLabel InvoiceIDLbLcombo = new JLabel("Invoice ID");
 		InvoiceIDLbLcombo.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		InvoiceIDLbLcombo.setBounds(10, 10, 95, 13);
@@ -352,6 +334,9 @@ public class DelUpdateInvoices extends JFrame implements ActionListener {
 		
 		
 		if(e.getSource()==delBtn) {
+			int p= JOptionPane.showConfirmDialog(null, "Do you really want to delete the Invoice","Delete",JOptionPane.YES_NO_OPTION);
+			if(p==0) {
+			
 			final String DATABASE_URL ="jdbc:mysql://localhost/project";
 			//localhost/project”;
 			Connection connection = null;
@@ -359,17 +344,9 @@ public class DelUpdateInvoices extends JFrame implements ActionListener {
 			String delid=InvoiceIDTF.getText();
 			Main.deleteInvoice(delid);
 			JOptionPane.showMessageDialog(this,"Invoice Deleted successfully");
+			}
 		}
 
-		/*if(e.getSource()==calculateBtn) {
-			double sum = 0;
-	        for(int i = 0; i < table.getRowCount(); i++)
-	        {
-	            sum = sum + Double.parseDouble(table.getValueAt(i, 3).toString());
-	        }
-	        totalTF.setText(Double.toString(sum));
-			}*/
-		
 		if(e.getSource()==viewProInvoice) {
 			viewInvoiceItems v =new viewInvoiceItems();
 			v.setVisible(true);

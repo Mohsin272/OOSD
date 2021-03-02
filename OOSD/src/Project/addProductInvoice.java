@@ -535,6 +535,9 @@ public class addProductInvoice extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {	
 		
 		if(e.getSource()==delProductBtn) {
+			
+			int p= JOptionPane.showConfirmDialog(null, "Do you really want to delete the Product from the Invoice","Delete",JOptionPane.YES_NO_OPTION);
+			if(p==0) {
 			final String DATABASE_URL ="jdbc:mysql://localhost/project";
 			//localhost/project”;
 			Connection connection = null;
@@ -543,7 +546,8 @@ public class addProductInvoice extends JFrame implements ActionListener {
 			String productID = ProductID.getText();	
 			Main.DeleteProductoffInvoice(productID,invoiceID);
 			JOptionPane.showMessageDialog(this,"Item Deleted successfully");
-			int i=0;			
+			int i=0;		
+			}
 
 		}
 			

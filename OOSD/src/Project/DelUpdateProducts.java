@@ -353,6 +353,9 @@ public class DelUpdateProducts extends JFrame implements ActionListener {
 
 		if(e.getSource()==delBtn) {
 			
+			int p= JOptionPane.showConfirmDialog(null, "Do you really want to delete the Product","Delete",JOptionPane.YES_NO_OPTION);
+			if(p==0) {
+							
 			final String DATABASE_URL ="jdbc:mysql://localhost/project";
 			//localhost/project”;
 			Connection connection = null;
@@ -360,6 +363,8 @@ public class DelUpdateProducts extends JFrame implements ActionListener {
 			String delid=IDTF.getText();
 			Main.deleteProducts(delid);
 			JOptionPane.showMessageDialog(this,"Product Deleted successfully");
+			}
+
 			
 		}
 			

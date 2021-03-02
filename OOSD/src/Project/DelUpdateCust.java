@@ -427,6 +427,8 @@ public class DelUpdateCust extends JFrame implements ActionListener {
 		
 		if(e.getSource()==delBtn) {
 			
+			int p= JOptionPane.showConfirmDialog(null, "Do you really want to delete the customer","Delete",JOptionPane.YES_NO_OPTION);
+			if(p==0) {
 			final String DATABASE_URL ="jdbc:mysql://localhost/project";
 			//localhost/project”;
 			Connection connection = null;
@@ -434,7 +436,7 @@ public class DelUpdateCust extends JFrame implements ActionListener {
 			String delid=IDTF.getText();
 			Main.deleteCustomer(delid);
 			JOptionPane.showMessageDialog(this,"Customer Deleted successfully");
-			
+			}
 			
 		}
 		
