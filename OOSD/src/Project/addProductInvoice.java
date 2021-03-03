@@ -159,7 +159,7 @@ public class addProductInvoice extends JFrame implements ActionListener {
 		
 		addBtn = new JButton("Add");
 		addBtn.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		addBtn.setBounds(477, 131, 85, 21);
+		addBtn.setBounds(559, 131, 85, 21);
 		panel_2.add(addBtn);
 		addBtn.addActionListener(this);
 		
@@ -211,14 +211,16 @@ public class addProductInvoice extends JFrame implements ActionListener {
 		panel_2.add(qntyTF);
 		qntyTF.setColumns(10);
 		
+		
 		qntyTF.addKeyListener(new KeyAdapter() {
 	         public void keyTyped(KeyEvent e) {
 	           char c = e.getKeyChar();
-	           if (!(Character.isDigit(c) ||
-	              (c == KeyEvent.VK_BACK_SPACE) ||
-	              (c == KeyEvent.VK_DELETE))) {
-	                e.consume();
+	           if (!(Character.isDigit(c) ||(c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))|| c=='0') {
+	        	   e.consume();
 	              }
+	           if(qntyTF.getText().length() > 0) {
+	        	   e.consume();
+	           }
 	         }
 	       });
 		
@@ -482,6 +484,13 @@ public class addProductInvoice extends JFrame implements ActionListener {
 		delProductBtn.setBounds(55, 409, 125, 21);
 		delProductBtn.addActionListener(this);
 		panel_2.add(delProductBtn);
+		
+		JLabel LimitLbl = new JLabel("Enter 1-9");
+		LimitLbl.setForeground(Color.RED);
+		LimitLbl.setBackground(Color.WHITE);
+		LimitLbl.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		LimitLbl.setBounds(469, 136, 80, 13);
+		panel_2.add(LimitLbl);
 		
 		productbox.addItemListener(
 				// anonymous inner class

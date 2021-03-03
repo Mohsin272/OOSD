@@ -10,7 +10,12 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 public class Main {
-	
+	/**
+	 * 
+	 * @param cus2-customer ID
+	 * @param date-date
+	 * @param total2-totalOwed
+	 */
 	public static void createInvoice(int cus2,String date,double total2) {	
 		final String DATABASE_URL ="jdbc:mysql://localhost/project";
 		//localhost/project”;
@@ -355,7 +360,17 @@ public class Main {
 		
 		
 	}
-	
+	/**
+	 * 
+	 * @param firstname
+	 * @param lastname
+	 * @param street
+	 * @param city
+	 * @param county
+	 * @param phonenumber
+	 * @param gender
+	 * @param email
+	 */
 	public static void addCustomer(String firstname,String lastname,String street,String city,String county,int phonenumber,String gender,String email) {
 		final String DATABASE_URL ="jdbc:mysql://localhost/project";
 		//localhost/project”;

@@ -197,7 +197,7 @@ public class Customers extends JFrame implements ActionListener {
 	              }
 	         }
 	       });
-		
+
 		JLabel emailLbl = new JLabel("Email");
 		emailLbl.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		emailLbl.setBounds(10, 157, 45, 13);
