@@ -15,6 +15,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
@@ -147,6 +149,17 @@ public class DelUpdateProducts extends JFrame implements ActionListener {
 		panel_2.add(quantityTF);
 		quantityTF.setColumns(10);
 		
+		quantityTF.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	           char c = e.getKeyChar();
+	           if (!(Character.isDigit(c) ||(c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+	             
+	        	   //JOptionPane.showMessageDialog(null, "Only Insert Numbers", "", JOptionPane.ERROR_MESSAGE);
+	        	   e.consume();
+	              }
+	         }
+	       });
+		
 		JLabel PriceLbl = new JLabel("Price");
 		PriceLbl.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		PriceLbl.setBounds(10, 188, 106, 19);
@@ -156,6 +169,17 @@ public class DelUpdateProducts extends JFrame implements ActionListener {
 		PriceTF.setBounds(139, 190, 146, 19);
 		panel_2.add(PriceTF);
 		PriceTF.setColumns(10);
+		
+		PriceTF.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	           char c = e.getKeyChar();
+	           if (!(Character.isDigit(c) ||(c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+	             
+	        	   //JOptionPane.showMessageDialog(null, "Only Insert Numbers", "", JOptionPane.ERROR_MESSAGE);
+	        	   e.consume();
+	              }
+	         }
+	       });
 		
 		delBtn = new JButton("Delete");
 		delBtn.setFont(new Font("Tahoma", Font.PLAIN, 15));

@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
@@ -128,59 +130,12 @@ public class ViewCus extends JFrame implements ActionListener {
 		table.getColumnModel().getColumn(8).setPreferredWidth(155);
 		table.setBounds(10, 10, 713, 496);
 		panel_2.add(table);
+		table.setEnabled(false);//doesnt allow user to edit the table
+		table.getTableHeader().setReorderingAllowed(false);//doesnt allow user to reorder the column headers
 
 		JScrollPane tablepane=new JScrollPane(table);
 		tablepane.setBounds(10,10,713,115);
 		panel_2.add(tablepane);
-		
-		/*String [] column= {"CustomerID","FirstName","LastName","Street","City","County","Country", "PhoneNumber","Sex","Email"};
-		
-		table = new JTable();
-		table.setBounds(10, 10, 713, 496); 
-		panel_2.add(new JScrollPane(table));
-		
-		final String DATABASE_URL ="jdbc:mysql://localhost/project";
-		//localhost/project”;
-		Connection connection = null;
-		PreparedStatement pstat=null;
-
-		try{
-	          // establish connection to database
-	          connection = DriverManager.getConnection(
-	          DATABASE_URL, "root", "" );
-	
-	          pstat = connection.prepareStatement("SELECT * FROM customer");
-	          ResultSet rs = pstat.executeQuery();
-	          table.setModel(DbUtils.resultSetToTableModel(rs));
-	         /* while (rs.next()) {
-	        	  String pid=rs.getString("CustomerID");
-	        	  String n=rs.getString("FirstName");
-	        	  String sn=rs.getString("LastName");
-	        	  String sx=rs.getString("Sex");
-	        	  String ph=rs.getString("PhoneNumber");
-	        	  String e=rs.getString("Email");
-	        	  String str=rs.getString("Street");
-	        	  String cty=rs.getString("City");
-	        	  String cnty=rs.getString("County");
-	        	  String cntry=rs.getString("Country");
-	        	  
-	        	}
-
-	        }
-        catch (SQLException SQLException)
-        {
-            SQLException.printStackTrace();
-        }
-        finally {
-            try {
-                pstat.close();
-                connection.close();
-            }
-            catch (SQLException sqlException){
-                sqlException.printStackTrace();
-            }
-        }//end add to sql
-		panel_2.add(table);*/
 
 	}
 

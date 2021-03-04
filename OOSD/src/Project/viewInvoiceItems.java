@@ -141,6 +141,8 @@ public class viewInvoiceItems extends JFrame implements ActionListener {
 		table=new JTable(Main.fetchInvoiceItems(),columns);
 		table.setBounds(10, 10, 713, 200);
 		panel_2.add(table);
+		table.setEnabled(false);//doesnt allow user to edit the table
+		table.getTableHeader().setReorderingAllowed(false);//doesnt allow user to reorder the column headers
 		
 		JScrollPane tablepane=new JScrollPane(table);
 		tablepane.setBounds(10,10,713,200);

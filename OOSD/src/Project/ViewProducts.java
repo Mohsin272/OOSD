@@ -128,43 +128,15 @@ public class ViewProducts extends JFrame implements ActionListener {
 		table=new JTable(Main.fetchProducts(),columns);
 		table.setBounds(10, 10, 713, 496);
 		panel_2.add(table);
+		table.setEnabled(false);//doesnt allow user to edit the table
+		table.getTableHeader().setReorderingAllowed(false);//doesnt allow user to reorder the column headers
 		
 		JScrollPane tablepane=new JScrollPane(table);
 		tablepane.setBounds(10,10,713,95);
 		panel_2.add(tablepane);
 
 	
-		/*table = new JTable();
-		panel_2.add(new JScrollPane (table));
-		table.setBounds(10, 10, 713, 496);
-		final String DATABASE_URL ="jdbc:mysql://localhost/project";
-		Connection connection = null;
-		PreparedStatement pstat=null;
-
-		try{
-	          // establish connection to database
-	          connection = DriverManager.getConnection(
-	          DATABASE_URL, "root", "" );
-	
-	          pstat = connection.prepareStatement("SELECT * FROM product");
-	          ResultSet rs = pstat.executeQuery();
-	          table.setModel(DbUtils.resultSetToTableModel(rs));
-	          
-	        }
-        catch (SQLException SQLException)
-        {
-            SQLException.printStackTrace();
-        }
-        finally {
-            try {
-                pstat.close();
-                connection.close();
-            }
-            catch (SQLException sqlException){
-                sqlException.printStackTrace();
-            }
-        }//end add to sql
-		panel_2.add(table);*/
+		
 
 	}
 

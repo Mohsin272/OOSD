@@ -130,6 +130,17 @@ public class Products extends JFrame implements ActionListener {
 		panel_2.add(quantityTF);
 		quantityTF.setColumns(10);
 		
+		quantityTF.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	           char c = e.getKeyChar();
+	           if (!(Character.isDigit(c) ||(c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+	             
+	        	   //JOptionPane.showMessageDialog(null, "Only Insert Numbers", "", JOptionPane.ERROR_MESSAGE);
+	        	   e.consume();
+	              }
+	         }
+	       });
+		
 		JLabel PriceLbl = new JLabel("Price");
 		PriceLbl.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		PriceLbl.setBounds(10, 177, 106, 19);

@@ -156,6 +156,17 @@ public class Invoice extends JFrame implements ActionListener {
 		panel_2.add(DateTF);
 		DateTF.setColumns(10);
 		
+		DateTF.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	           char c = e.getKeyChar();
+	           if (!(Character.isDigit(c) ||(c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE)|| c==KeyEvent.VK_MINUS)) {
+	             
+	        	   //JOptionPane.showMessageDialog(null, "Only Insert Numbers", "", JOptionPane.ERROR_MESSAGE);
+	        	   e.consume();
+	              }
+	         }
+	       });
+		
 		JLabel DateinputLbl = new JLabel("YYYY-MM-DD");
 		DateinputLbl.setForeground(Color.RED);
 		DateinputLbl.setFont(new Font("Tahoma", Font.PLAIN, 15));

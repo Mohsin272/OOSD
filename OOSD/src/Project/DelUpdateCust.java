@@ -174,10 +174,10 @@ public class DelUpdateCust extends JFrame implements ActionListener {
 		phoneNumTF.addKeyListener(new KeyAdapter() {
 	         public void keyTyped(KeyEvent e) {
 	           char c = e.getKeyChar();
-	           if (!(Character.isDigit(c) ||
-	              (c == KeyEvent.VK_BACK_SPACE) ||
-	              (c == KeyEvent.VK_DELETE))) {
-	                e.consume();
+	           if (!(Character.isDigit(c) ||(c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+	             
+	        	   JOptionPane.showMessageDialog(null, "Only Insert Numbers", "", JOptionPane.ERROR_MESSAGE);
+	        	   e.consume();
 	              }
 	         }
 	       });
@@ -221,13 +221,6 @@ public class DelUpdateCust extends JFrame implements ActionListener {
 		countyTF.setBounds(139, 295, 146, 19);
 		panel_2.add(countyTF);
 		countyTF.setColumns(10);
-		
-		JLabel warningLbl = new JLabel("Only insert digits");
-		warningLbl.setForeground(Color.RED);
-		warningLbl.setBackground(Color.RED);
-		warningLbl.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		warningLbl.setBounds(297, 179, 116, 18);
-		panel_2.add(warningLbl);
 		
 		delBtn = new JButton("Delete");
 		delBtn.setFont(new Font("Tahoma", Font.PLAIN, 15));

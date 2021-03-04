@@ -211,7 +211,6 @@ public class addProductInvoice extends JFrame implements ActionListener {
 		panel_2.add(qntyTF);
 		qntyTF.setColumns(10);
 		
-		
 		qntyTF.addKeyListener(new KeyAdapter() {
 	         public void keyTyped(KeyEvent e) {
 	           char c = e.getKeyChar();
@@ -478,6 +477,17 @@ public class addProductInvoice extends JFrame implements ActionListener {
 		ProductID.setColumns(10);
 		ProductID.setBounds(115, 358, 96, 19);
 		panel_2.add(ProductID);
+		
+		ProductID.addKeyListener(new KeyAdapter() {
+	         public void keyTyped(KeyEvent e) {
+	           char c = e.getKeyChar();
+	           if (!(Character.isDigit(c) ||(c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+	             
+	        	   //JOptionPane.showMessageDialog(null, "Only Insert Numbers", "", JOptionPane.ERROR_MESSAGE);
+	        	   e.consume();
+	              }
+	         }
+	       });
 		
 		delProductBtn = new JButton("Delete Item");
 		delProductBtn.setFont(new Font("Tahoma", Font.PLAIN, 15));
