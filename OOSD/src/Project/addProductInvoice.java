@@ -51,8 +51,6 @@ public class addProductInvoice extends JFrame implements ActionListener {
 	private JTextField priceTF;
 	private JTextField qntyTF;
 	private JButton addBtn;
-	//private JButton upBtn;
-	//private JButton delBtn;
 	JComboBox productbox = new JComboBox();
 	JComboBox invoiceIDBox = new JComboBox();
 	private DefaultTableModel model;
@@ -216,6 +214,7 @@ public class addProductInvoice extends JFrame implements ActionListener {
 	           char c = e.getKeyChar();
 	           if (!(Character.isDigit(c) ||(c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))|| c=='0') {
 	        	   e.consume();
+	        	   JOptionPane.showMessageDialog(null, "Only Insert Numbers", "", JOptionPane.ERROR_MESSAGE);
 	              }
 	           if(qntyTF.getText().length() > 0) {
 	        	   e.consume();
@@ -483,7 +482,7 @@ public class addProductInvoice extends JFrame implements ActionListener {
 	           char c = e.getKeyChar();
 	           if (!(Character.isDigit(c) ||(c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
 	             
-	        	   //JOptionPane.showMessageDialog(null, "Only Insert Numbers", "", JOptionPane.ERROR_MESSAGE);
+	        	   JOptionPane.showMessageDialog(null, "Only Insert Numbers", "", JOptionPane.ERROR_MESSAGE);
 	        	   e.consume();
 	              }
 	         }

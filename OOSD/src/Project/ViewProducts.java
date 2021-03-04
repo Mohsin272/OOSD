@@ -135,9 +135,6 @@ public class ViewProducts extends JFrame implements ActionListener {
 		tablepane.setBounds(10,10,713,95);
 		panel_2.add(tablepane);
 
-	
-		
-
 	}
 
 	@Override

@@ -180,6 +180,7 @@ public class DelUpdateInvoices extends JFrame implements ActionListener {
 	           if (!(Character.isDigit(c) ||
 	              (c == KeyEvent.VK_BACK_SPACE) ||
 	              (c == KeyEvent.VK_DELETE))) {
+	        	   JOptionPane.showMessageDialog(null, "Only Insert Numbers", "", JOptionPane.ERROR_MESSAGE);
 	                e.consume();
 	              }
 	         }

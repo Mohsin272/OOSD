@@ -154,7 +154,7 @@ public class DelUpdateProducts extends JFrame implements ActionListener {
 	           char c = e.getKeyChar();
 	           if (!(Character.isDigit(c) ||(c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
 	             
-	        	   //JOptionPane.showMessageDialog(null, "Only Insert Numbers", "", JOptionPane.ERROR_MESSAGE);
+	        	   JOptionPane.showMessageDialog(null, "Only Insert Numbers", "", JOptionPane.ERROR_MESSAGE);
 	        	   e.consume();
 	              }
 	         }
@@ -175,7 +175,7 @@ public class DelUpdateProducts extends JFrame implements ActionListener {
 	           char c = e.getKeyChar();
 	           if (!(Character.isDigit(c) ||(c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
 	             
-	        	   //JOptionPane.showMessageDialog(null, "Only Insert Numbers", "", JOptionPane.ERROR_MESSAGE);
+	        	   JOptionPane.showMessageDialog(null, "Only Insert Numbers", "", JOptionPane.ERROR_MESSAGE);
 	        	   e.consume();
 	              }
 	         }
