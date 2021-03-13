@@ -65,8 +65,6 @@ public class lab14 extends JFrame {
 		label2=new JLabel("Print Quality");
 		comboBox=new JComboBox();
 		comboBox.addItem("High");
-		comboBox.addItem("Medium");
-		comboBox.addItem("Low");
 		check1=new JCheckBox("Print to File");
 		panel3=new JPanel();
 		panel3.setLayout(new FlowLayout(FlowLayout.CENTER,10,0));
