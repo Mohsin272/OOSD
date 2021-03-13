@@ -557,7 +557,6 @@ public class addProductInvoice extends JFrame implements ActionListener {
 			int p= JOptionPane.showConfirmDialog(null, "Do you really want to delete the Product from the Invoice","Delete",JOptionPane.YES_NO_OPTION);
 			if(p==0) {
 			final String DATABASE_URL ="jdbc:mysql://localhost/project";
-			//localhost/project”;
 			Connection connection = null;
 			PreparedStatement pstat=null;
 			String invoiceID = InvoiceTF.getText();	
@@ -618,22 +617,27 @@ public class addProductInvoice extends JFrame implements ActionListener {
 		if(e.getSource()==addInvoice) {
 			Invoice inv =new Invoice();
 			inv.setVisible(true);
+			dispose();
 		}
 		if(e.getSource()==delupinvoice) {
 			DelUpdateInvoices dup =new DelUpdateInvoices();
 			dup.setVisible(true);
+			dispose();
 		}
 		if(e.getSource()==viewInvoice) {
 			ViewInvoice vi =new ViewInvoice();
 			vi.setVisible(true);
+			dispose();
 		}
 		if(e.getSource()==viewProInvoice) {
 			viewInvoiceItems v =new viewInvoiceItems();
 			v.setVisible(true);
+			dispose();
 		}
 		if(e.getSource()==ExitBtn) {
 			MainMenu m =new MainMenu();
 			m.setVisible(true);
+			dispose();
 		}
 		
 	}

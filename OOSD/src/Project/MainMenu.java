@@ -111,15 +111,18 @@ public class MainMenu extends JFrame implements ActionListener {
 		if(e.getSource()==CusBtn) {
 			Customers c =new Customers();
 			c.setVisible(true);
+			dispose();
 		}
 		
 		if(e.getSource()==productBtn) {
 			Products p  =new Products();
 			p.setVisible(true);
+			dispose();
 		}
 		if(e.getSource()==invoiceBtn) {
 			Invoice i  =new Invoice();
 			i.setVisible(true);
+			dispose();
 		}
 		
 		

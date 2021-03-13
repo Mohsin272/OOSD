@@ -143,16 +143,19 @@ public class ViewProducts extends JFrame implements ActionListener {
 		if(e.getSource()==AddProductScreenBtn) {
 			Products pr  =new Products();
 			pr.setVisible(true);
+			dispose();
 		}
 		
 		if(e.getSource()==delUpBtn) {
 			DelUpdateProducts dup =new DelUpdateProducts();
 			dup.setVisible(true);
+			dispose();
 		}
 		
 		if(e.getSource()==ExitBtn) {
 			MainMenu m =new MainMenu();
 			m.setVisible(true);
+			dispose();
 		}
 		
 		

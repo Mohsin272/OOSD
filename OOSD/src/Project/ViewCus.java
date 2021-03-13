@@ -145,16 +145,19 @@ public class ViewCus extends JFrame implements ActionListener {
 		if(e.getSource()==AddCusScreenBtn) {
 			Customers c  =new Customers();
 			c.setVisible(true);
+			dispose();
 		}
 		
 		if(e.getSource()==delUpBtn) {
 			DelUpdateCust dup =new DelUpdateCust();
 			dup.setVisible(true);
+			dispose();
 		}
 		
 		if(e.getSource()==ExitBtn) {
 			MainMenu m =new MainMenu();
 			m.setVisible(true);
+			dispose();
 		}
 		
 		

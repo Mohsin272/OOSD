@@ -300,77 +300,7 @@ public class DelUpdateProducts extends JFrame implements ActionListener {
 		
 	}
 	
-	/*public static void deleteProducts(String id) {
-
-		final String DATABASE_URL ="jdbc:mysql://localhost/project";
-		//localhost/project”;
-		Connection connection = null;
-		PreparedStatement pstat=null;
-		//int delid=3;
-		
-		int i=0;
-		try{
-	          // establish connection to database
-	          connection = DriverManager.getConnection(
-	          DATABASE_URL, "root", "" );
-
-	          pstat = connection.prepareStatement("DELETE from product WHERE ProductID= ?");
-	          pstat.setString(1,id);
-	          
-	          i=pstat.executeUpdate();
-	          //JOptionPane.showMessageDialog(this,"Product Deleted successfully");
-	        }
-        catch (SQLException sqlException)
-        {
-            sqlException.printStackTrace();
-        }
-        finally {
-            try {
-                pstat.close();
-                connection.close();
-            }
-            catch (SQLException sqlException){
-                sqlException.printStackTrace();
-            }
-        }//end add to sql
-		
-	}
-
-	public static void updateProducts(int upid,String name,String description,int quantity,float price) {
-		final String DATABASE_URL ="jdbc:mysql://localhost/project";
-		//localhost/project”;
-		Connection connection = null;
-		PreparedStatement pstat=null;
-		
-		int i=0;
-		try{
-	          // establish connection to database
-	          connection = DriverManager.getConnection(
-	          DATABASE_URL, "root", "" );
-	          pstat = connection.prepareStatement("UPDATE product set Name=?,Description=?,Quantity=?,Price=? WHERE ProductID=?");
-	          pstat . setString (1, name );
-	          pstat.setString(2, description);
-	          pstat . setInt (3, quantity );
-	          pstat . setFloat (4, price );
-	          pstat.setInt(5, upid);
-
-	          i=pstat.executeUpdate();
-	        }
-        catch (SQLException sqlException)
-        {
-            sqlException.printStackTrace();
-        }
-        finally {
-            try {
-                pstat.close();
-                connection.close();
-            }
-            catch (SQLException sqlException){
-                sqlException.printStackTrace();
-            }
-        }//end add to sql
-		
-	}*/
+	
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -410,10 +340,12 @@ public class DelUpdateProducts extends JFrame implements ActionListener {
 		if(e.getSource()==AddProductScreenBtn) {
 			Products pr  =new Products();
 			pr.setVisible(true);
+			dispose();
 		}
 		if(e.getSource()==viewProBtn) {
 			ViewProducts v =new ViewProducts();
 			v.setVisible(true);
+			dispose();
 		}
 		if(e.getSource()==clearBtn) {
 			ProductNameTF.setText("");
@@ -424,6 +356,7 @@ public class DelUpdateProducts extends JFrame implements ActionListener {
 		if(e.getSource()==ExitBtn) {
 			MainMenu m =new MainMenu();
 			m.setVisible(true);
+			dispose();
 		}
 			
 	}

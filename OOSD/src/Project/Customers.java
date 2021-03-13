@@ -54,6 +54,7 @@ public class Customers extends JFrame implements ActionListener {
 	private JRadioButton MaleBtn;
 	private JRadioButton FemaleBtn;
 	private JRadioButton OtherBtn;
+	private ButtonGroup R;
 	private JButton addBtn;
 	JButton ViewCusBtn;
 	JButton delUpdateCus;
@@ -172,7 +173,7 @@ public class Customers extends JFrame implements ActionListener {
 		OtherBtn.setBounds(279, 93, 63, 21);
 		panel_2.add(OtherBtn);
 		
-		ButtonGroup R = new ButtonGroup();
+		R=new ButtonGroup();
 		R.add(MaleBtn);
 		R.add(FemaleBtn);
 		R.add(OtherBtn);
@@ -241,8 +242,6 @@ public class Customers extends JFrame implements ActionListener {
 		addBtn = new JButton("Add");
 		addBtn.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		addBtn.setBounds(20, 485, 85, 21);
-		/*addBtn.setBackground(Color.GREEN);
-		addBtn.setOpaque(true);*/
 		panel_2.add(addBtn);
 		addBtn.addActionListener(this);
 		
@@ -255,14 +254,7 @@ public class Customers extends JFrame implements ActionListener {
 		addcusPic.setIcon(new ImageIcon(Customers.class.getResource("/screens/addCus.png")));
 		addcusPic.setBounds(455, 10, 245, 303);
 		panel_2.add(addcusPic);
-		
-		JLabel warningLbl = new JLabel("Only insert digits");
-		warningLbl.setForeground(Color.RED);
-		warningLbl.setBackground(Color.RED);
-		warningLbl.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		warningLbl.setBounds(297, 129, 116, 18);
-		warningLbl.setVisible(false);
-		panel_2.add(warningLbl);
+
 	}
 	
 
@@ -282,10 +274,8 @@ public class Customers extends JFrame implements ActionListener {
 			countyTF.setText("");
 			emailTF.setText("");
 			phoneNumTF.setText("");
-			MaleBtn.setSelected(false);
-			FemaleBtn.setSelected(false);
-			OtherBtn.setSelected(false);
-			
+			R.clearSelection();
+		
 		}
 		if(e.getSource()==delUpdateCus) {
 			DelUpdateCust d =new DelUpdateCust();

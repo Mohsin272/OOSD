@@ -194,11 +194,13 @@ public class Products extends JFrame implements ActionListener {
 		if(e.getSource()==viewProBtn) {
 			ViewProducts v =new ViewProducts();
 			v.setVisible(true);
+			dispose();
 		}
 		
 		if(e.getSource()==delUpBtn) {
 			DelUpdateProducts dup =new DelUpdateProducts();
 			dup.setVisible(true);
+			dispose();
 		}
 		
 		
@@ -212,6 +214,7 @@ public class Products extends JFrame implements ActionListener {
 		if(e.getSource()==ExitBtn) {
 			MainMenu m =new MainMenu();
 			m.setVisible(true);
+			dispose();
 		}
 		if(e.getSource()==addBtn) {
 			if(ProductNameTF.getText().isEmpty() || quantityTF.getText().isEmpty() ||PriceTF.getText().isEmpty() ||descTF.getText().isEmpty()) {

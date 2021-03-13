@@ -12,9 +12,9 @@ import javax.swing.JOptionPane;
 public class Main {
 	/**
 	 * 
-	 * @param cus2-customer ID
-	 * @param date-date
-	 * @param total2-totalOwed
+	 * @param cus2-customer ID to be added to invoice
+	 * @param date-date on invoice
+	 * @param total2-totalOwed on invoice
 	 */
 	public static void createInvoice(int cus2,String date,double total2) {	
 		final String DATABASE_URL ="jdbc:mysql://localhost/project";
@@ -52,7 +52,11 @@ public class Main {
         }
 		
 	}
-	
+	/**
+	 * 
+	 * @param pID -Product ID to be deleted off the invoice
+	 * @param iID -Invoice ID for products to be deleted off
+	 */
 	public static void DeleteProductoffInvoice(String pID,String iID) {
 		final String DATABASE_URL ="jdbc:mysql://localhost/project";
 		//localhost/project”;
@@ -88,7 +92,10 @@ public class Main {
 		
 		
 	}
-	
+	/**
+	 * 
+	 * @return -returns a 2d array containing all the details form the selected mySQL database table
+	 */
 	public static String[][] fetchInvoiceItems()
     {
 		Connection con;
@@ -129,6 +136,10 @@ public class Main {
         return results;
     }
 
+	/**
+	 * 
+	 * @return-returns a 2d array containing all the details form the selected mySQL database table
+	 */
 	public static String[][] fetchInvoice()
     {
 		Connection con;
@@ -171,7 +182,13 @@ public class Main {
         }
         return results;
     }
-	
+	/**
+	 * 
+	 * @param upid- Invoice ID of selected Invoice to be updated
+	 * @param date-Date to be updated
+	 * @param totalowed-Total Owed to be updated
+	 * @param cusid- Customer ID for whose Invoice is to be updated
+	 */
 	public static void updateInvoice(int upid,String date,String totalowed,String cusid) {
 		final String DATABASE_URL ="jdbc:mysql://localhost/project";
 		//localhost/project”;
@@ -206,7 +223,10 @@ public class Main {
         }//end add to sql
 		
 	}
-	
+	/**
+	 * 
+	 * @param id-Invoice ID of invoice to be deleted
+	 */
 	public static void deleteInvoice(String id) {
 		final String DATABASE_URL ="jdbc:mysql://localhost/project";
 		//localhost/project”;
@@ -241,7 +261,10 @@ public class Main {
 		
 
 	}
-	
+	/**
+	 * 
+	 * @return -returns a 2d array containing all the details form the selected mySQL database table
+	 */
 	public static String[][] fetchProducts()//gets data from the products table and returns it as a 2d array
     {
         Connection con;
@@ -282,7 +305,10 @@ public class Main {
         return results;
         
     }
-	
+	/**
+	 * 
+	 * @return-returns a 2d array containing all the details form the selected mySQL database table
+	 */
 	public static String[][] fetchCustomers()//gets data from the customers table and returns it as a 2d array
     {
         Connection con;
@@ -323,7 +349,13 @@ public class Main {
         return results;
         
     }
-
+	/**
+	 * 
+	 * @param name- Product name to be added
+	 * @param description- Product description to be added
+	 * @param price- Product Price to be added
+	 * @param quantity- Product Quantity to be added
+	 */
 	public static void addProduct(String name,String description,float price,int quantity){
 		final String DATABASE_URL ="jdbc:mysql://localhost/project";
 		//localhost/project”;
@@ -362,14 +394,14 @@ public class Main {
 	}
 	/**
 	 * 
-	 * @param firstname
-	 * @param lastname
-	 * @param street
-	 * @param city
-	 * @param county
-	 * @param phonenumber
-	 * @param gender
-	 * @param email
+	 * @param firstname -Customer name to be added
+	 * @param lastname-Customer last name to be added
+	 * @param street-Customer street to be added
+	 * @param city-Customer city to be added
+	 * @param county-Customer county to be added
+	 * @param phonenumber-Customer number to be added
+	 * @param gender-Customer gender to be added
+	 * @param email-Customer email to be added
 	 */
 	public static void addCustomer(String firstname,String lastname,String street,String city,String county,int phonenumber,String gender,String email) {
 		final String DATABASE_URL ="jdbc:mysql://localhost/project";
@@ -412,6 +444,10 @@ public class Main {
 		
 	}
 	
+	/**
+	 * 
+	 * @param id-Customer ID to be deleted
+	 */
 	public static void deleteCustomer(String id) {
 		final String DATABASE_URL ="jdbc:mysql://localhost/project";
 		//localhost/project”;
@@ -446,7 +482,10 @@ public class Main {
 		
 
 	}
-	
+	/**
+	 * 
+	 * @param id -Product ID to be deleted
+	 */
 	public static void deleteProducts(String id) {
 
 		final String DATABASE_URL ="jdbc:mysql://localhost/project";
@@ -483,6 +522,14 @@ public class Main {
 		
 	}
 
+	/**
+	 * 
+	 * @param upid -Product ID to be updated
+	 * @param name- Product name to be updated
+	 * @param description- Product description to be updated
+	 * @param quantity-Product Quantity to be updated
+	 * @param price-Product Price to be updated
+	 */
 	public static void updateProducts(int upid,String name,String description,int quantity,float price) {
 		final String DATABASE_URL ="jdbc:mysql://localhost/project";
 		//localhost/project”;
@@ -518,6 +565,18 @@ public class Main {
         }//end add to sql
 		
 	}
+
+	/**
+	 * @param upid Customer ID to be updated
+	 * @param firstname -Customer name to be updated
+	 * @param lastname-Customer last name to be updated
+	 * @param street-Customer street to be updated
+	 * @param city-Customer city to be updated
+	 * @param county-Customer county to be updated
+	 * @param phonenumber-Customer phone number to be updated
+	 * @param gender-Customer gender to be updated
+	 * @param email-Customer email to be updated
+	 */
 
 	public static void updateCustomer(int upid,String firstname,String lastname,String street,String city,String county,int phonenumber,String email,String gender) {
 		final String DATABASE_URL ="jdbc:mysql://localhost/project";

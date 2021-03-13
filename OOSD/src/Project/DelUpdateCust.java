@@ -42,7 +42,6 @@ public class DelUpdateCust extends JFrame implements ActionListener {
 	private final JLabel DelUpProLbl = new JLabel("Delete/Update Customer");
 	private final JLabel CusNameLbl = new JLabel("Name");
 	private final JPanel panel_2 = new JPanel();
-	//private  JButton clearBtn = new JButton("Clear");
 	private  JButton updateBtn= new JButton("Update");
 	private  JButton delBtn;
 	private JButton AddCusScreenBtn =new JButton("Add Customer");
@@ -406,16 +405,19 @@ public class DelUpdateCust extends JFrame implements ActionListener {
 		if(e.getSource()==AddCusScreenBtn) {
 			Customers pr  =new Customers();
 			pr.setVisible(true);
+			dispose();
 			
 		}
 		if(e.getSource()==ViewCusBtn) {
 			ViewCus v =new ViewCus();
 			v.setVisible(true);
+			dispose();
 			
 		}
 		if(e.getSource()==ExitBtn) {
 			MainMenu m =new MainMenu();
 			m.setVisible(true);
+			dispose();
 		}
 		
 		if(e.getSource()==delBtn) {

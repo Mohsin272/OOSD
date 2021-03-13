@@ -154,26 +154,31 @@ public class ViewInvoice extends JFrame implements ActionListener {
 		if(e.getSource()==viewProInvoice) {
 			viewInvoiceItems v =new viewInvoiceItems();
 			v.setVisible(true);
+			dispose();
 		}
 		
 		if(e.getSource()==addProInvoice) {
 			addProductInvoice add =new addProductInvoice();
 			add.setVisible(true);
+			dispose();
 		}
 		
 		if(e.getSource()==AddInvoiceScreenBtn) {
 			Invoice i  =new Invoice();
 			i.setVisible(true);
+			dispose();
 		}
 		
 		if(e.getSource()==delUpBtn) {
 			DelUpdateInvoices dup =new DelUpdateInvoices();
 			dup.setVisible(true);
+			dispose();
 		}
 		
 		if(e.getSource()==ExitBtn) {
 			MainMenu m =new MainMenu();
 			m.setVisible(true);
+			dispose();
 		}
 		
 		
